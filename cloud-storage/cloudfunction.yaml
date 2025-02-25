@@ -1,0 +1,17 @@
+apiVersion: extensions.harness.io/v1beta1
+kind: CloudFunction
+metadata:
+  name: my-cloud-function
+spec:
+  region: us-central1
+  runtime: nodejs20
+  entryPoint: main
+  source:
+    type: GCS
+    bucket: my-cloud-function-bucket
+    object: function-source.zip
+  trigger:
+    type: HTTP
+  environmentVariables:
+    ENV_VAR1: "value1"
+    ENV_VAR2: "value2"
